@@ -1,15 +1,15 @@
 apiVersion: v1
 kind: Pod
 metadata:
-  name: CHANGE_ME
+  name: hello-koans
   namespace: cka-koans
   labels:
-    app: CHANGE_ME
+    app: pod-basics
 spec:
   restartPolicy: Always
   containers:
     - name: nginx
-      image: REPLACE_ME
+      image: nginx:1.25
       ports:
         - name: http
-          containerPort: 0
+          containerPort: 80
