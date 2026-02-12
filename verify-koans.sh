@@ -27,7 +27,10 @@ if [[ ! -d "$KOANS_DIR" ]]; then
   exit 1
 fi
 
-mapfile -t ALL_KOANS < <(find "$KOANS_DIR" -maxdepth 1 -mindepth 1 -type d | sort)
+ALL_KOANS=()
+while IFS= read -r line; do
+  ALL_KOANS+=("$line")
+done < <(find "$KOANS_DIR" -maxdepth 1 -mindepth 1 -type d | sort)
 
 if [[ ${#ALL_KOANS[@]} -eq 0 ]]; then
   echo "No koans available yet." >&2
