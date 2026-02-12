@@ -1,0 +1,20 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: img-bad
+  namespace: troubleshoot
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: img-bad
+  template:
+    metadata:
+      labels:
+        app: img-bad
+    spec:
+      containers:
+        - name: nginx
+          image: nginx:1.25-typo
+          ports:
+            - containerPort: 80

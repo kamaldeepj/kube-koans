@@ -1,0 +1,27 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: spread-hard
+  namespace: troubleshoot-adv
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: spread-hard
+  template:
+    metadata:
+      labels:
+        app: spread-hard
+    spec:
+      affinity:
+        podAntiAffinity:
+          requiredDuringSchedulingIgnoredDuringExecution:
+            - labelSelector:
+                matchLabels:
+                  app: spread-hard
+              topologyKey: kubernetes.io/hostname
+      containers:
+        - name: nginx
+          image: nginx:1.25
+          ports:
+            - containerPort: 80

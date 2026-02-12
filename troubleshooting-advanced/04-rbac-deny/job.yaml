@@ -1,0 +1,14 @@
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: rbac-check
+  namespace: troubleshoot-adv
+spec:
+  template:
+    spec:
+      serviceAccountName: rbac-sa
+      restartPolicy: Never
+      containers:
+        - name: kubectl
+          image: bitnami/kubectl:1.31
+          command: ["/bin/sh", "-c", "kubectl get pods -n troubleshoot-adv"]

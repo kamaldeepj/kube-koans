@@ -1,0 +1,12 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: egress-client
+  namespace: troubleshoot-adv
+  labels:
+    app: egress-client
+spec:
+  containers:
+    - name: curl
+      image: curlimages/curl:8.6.0
+      command: ["/bin/sh", "-c", "sleep 3600"]
