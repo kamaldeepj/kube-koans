@@ -1,0 +1,27 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: FILL_ME
+  namespace: cka-koans
+  labels:
+    app: CHANGE_ME
+spec:
+  replicas: 1
+  strategy:
+    type: RollingUpdate
+    rollingUpdate:
+      maxUnavailable: 1
+      maxSurge: 0
+  selector:
+    matchLabels:
+      app: CHANGE_ME
+  template:
+    metadata:
+      labels:
+        app: CHANGE_ME
+    spec:
+      containers:
+        - name: nginx
+          image: WRONG_IMAGE
+          ports:
+            - containerPort: 0

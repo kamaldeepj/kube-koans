@@ -1,0 +1,10 @@
+apiVersion: policy/v1
+kind: PodDisruptionBudget
+metadata:
+  name: CHANGE_ME
+  namespace: cka-koans
+spec:
+  minAvailable: 0
+  selector:
+    matchLabels:
+      app: CHANGE_ME

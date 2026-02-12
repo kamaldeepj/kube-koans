@@ -1,0 +1,28 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: probe-demo
+  namespace: cka-koans
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: probe-demo
+  template:
+    metadata:
+      labels:
+        app: probe-demo
+    spec:
+      containers:
+        - name: nginx
+          image: nginx:1.25
+          ports:
+            - containerPort: 80
+          livenessProbe:
+            httpGet:
+              path: /wrong
+              port: 80
+          readinessProbe:
+            httpGet:
+              path: /wrong
+              port: 80

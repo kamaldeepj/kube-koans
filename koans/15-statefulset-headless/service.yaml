@@ -1,0 +1,12 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: db
+  namespace: cka-koans
+spec:
+  clusterIP: CHANGE_ME
+  selector:
+    app: db
+  ports:
+    - port: 80
+      targetPort: 80

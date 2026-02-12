@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: CHANGE_ME
+  namespace: cka-koans
+  labels:
+    app: CHANGE_ME
+spec:
+  restartPolicy: Always
+  containers:
+    - name: nginx
+      image: REPLACE_ME
+      ports:
+        - name: http
+          containerPort: 0

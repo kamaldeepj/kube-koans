@@ -1,0 +1,18 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: CHANGE_ME
+  namespace: cka-koans
+spec:
+  ingressClassName: CHANGE_ME
+  rules:
+    - host: CHANGE_ME
+      http:
+        paths:
+          - path: /wrong
+            pathType: Prefix
+            backend:
+              service:
+                name: CHANGE_ME
+                port:
+                  number: 0

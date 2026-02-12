@@ -1,0 +1,19 @@
+apiVersion: networking.k8s.io/v1
+kind: NetworkPolicy
+metadata:
+  name: CHANGE_ME
+  namespace: cka-koans
+spec:
+  podSelector:
+    matchLabels:
+      app: CHANGE_ME
+  policyTypes:
+    - Ingress
+  ingress:
+    - from:
+        - podSelector:
+            matchLabels:
+              app: CHANGE_ME
+      ports:
+        - protocol: TCP
+          port: 0

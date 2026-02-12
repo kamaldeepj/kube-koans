@@ -1,0 +1,13 @@
+apiVersion: rbac.authorization.k8s.io/v1
+kind: RoleBinding
+metadata:
+  name: CHANGE_ME
+  namespace: cka-koans
+subjects:
+  - kind: ServiceAccount
+    name: CHANGE_ME
+    namespace: cka-koans
+roleRef:
+  kind: Role
+  name: CHANGE_ME
+  apiGroup: rbac.authorization.k8s.io

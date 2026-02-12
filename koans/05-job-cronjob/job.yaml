@@ -1,0 +1,16 @@
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: CHANGE_ME
+  namespace: cka-koans
+spec:
+  template:
+    metadata:
+      labels:
+        job: pi-job
+    spec:
+      restartPolicy: Never
+      containers:
+        - name: busybox
+          image: busybox:1.36
+          command: ["echo", "CHANGE_ME"]
