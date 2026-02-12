@@ -64,3 +64,9 @@ Add more koans by copying a directory, defining new acceptance criteria, and wri
 Each run prints ✅ on success or ❌ with a helpful error message if something is missing.
 
 Happy hacking!
+
+## Troubleshooting Modules
+These are separate from koans and intentionally broken. There is no automated verification.
+
+- `troubleshooting/` basic troubleshooting drills
+- `troubleshooting-advanced/` multi-object, exam-style troubleshooting

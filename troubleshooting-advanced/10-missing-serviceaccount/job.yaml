@@ -1,0 +1,14 @@
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: sa-check
+  namespace: troubleshoot-adv
+spec:
+  template:
+    spec:
+      serviceAccountName: missing-sa
+      restartPolicy: Never
+      containers:
+        - name: busybox
+          image: busybox:1.36
+          command: ["/bin/sh", "-c", "echo ok && sleep 1"]

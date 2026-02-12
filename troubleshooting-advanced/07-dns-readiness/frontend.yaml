@@ -1,0 +1,27 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: frontend
+  namespace: troubleshoot-adv
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: frontend
+  template:
+    metadata:
+      labels:
+        app: frontend
+    spec:
+      containers:
+        - name: busybox
+          image: busybox:1.36
+          command: ["/bin/sh", "-c", "sleep 3600"]
+          env:
+            - name: API_URL
+              value: http://api:80
+          readinessProbe:
+            exec:
+              command: ["/bin/sh", "-c", "wget -qO- $API_URL >/dev/null"]
+            initialDelaySeconds: 3
+            periodSeconds: 5
