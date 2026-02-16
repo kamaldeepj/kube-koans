@@ -1,16 +1,16 @@
 apiVersion: batch/v1
 kind: CronJob
 metadata:
-  name: CHANGE_ME
+  name: hello-cron
   namespace: cka-koans
 spec:
-  schedule: "* * * * *"
+  schedule: "*/5 * * * *"
   jobTemplate:
     spec:
       template:
         spec:
-          restartPolicy: Never
+          restartPolicy: OnFailure
           containers:
             - name: busybox
               image: busybox:1.36
-              command: ["echo", "CHANGE_ME"]
+              command: ["echo", "hello"]

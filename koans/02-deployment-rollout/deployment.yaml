@@ -1,27 +1,27 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: FILL_ME
+  name: web-koans
   namespace: cka-koans
   labels:
-    app: CHANGE_ME
+    app: web-koans
 spec:
-  replicas: 1
+  replicas: 3
   strategy:
     type: RollingUpdate
     rollingUpdate:
-      maxUnavailable: 1
-      maxSurge: 0
+      maxUnavailable: 0
+      maxSurge: 1
   selector:
     matchLabels:
-      app: CHANGE_ME
+      app: web-koans
   template:
     metadata:
       labels:
-        app: CHANGE_ME
+        app: web-koans
     spec:
       containers:
         - name: nginx
-          image: WRONG_IMAGE
+          image: nginx:1.25
           ports:
-            - containerPort: 0
+            - containerPort: 80

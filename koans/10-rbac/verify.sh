@@ -28,7 +28,8 @@ if [[ "$can_get" != "yes" ]]; then
   fail "ServiceAccount $sa cannot get pods (expected yes)."
 fi
 
-can_delete=$(kubectl auth can-i delete pods -n "$ns" --as "system:serviceaccount:${ns}:${sa}")
+# `kubectl auth can-i` exits 1 when the answer is "no", which is expected here.
+can_delete=$(kubectl auth can-i delete pods -n "$ns" --as "system:serviceaccount:${ns}:${sa}" || true)
 if [[ "$can_delete" != "no" ]]; then
   fail "ServiceAccount $sa should not be able to delete pods."
 fi

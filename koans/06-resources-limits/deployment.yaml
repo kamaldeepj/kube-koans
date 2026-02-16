@@ -4,7 +4,7 @@ metadata:
   name: resource-demo
   namespace: cka-koans
 spec:
-  replicas: 1
+  replicas: 2
   selector:
     matchLabels:
       app: resource-demo
@@ -18,8 +18,8 @@ spec:
           image: nginx:1.25
           resources:
             requests:
-              cpu: "0"
-              memory: "0Mi"
+              cpu: "100m"
+              memory: "128Mi"
             limits:
-              cpu: "0"
-              memory: "0Mi"
+              cpu: "250m"
+              memory: "256Mi"

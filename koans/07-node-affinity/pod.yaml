@@ -13,7 +13,7 @@ spec:
       requiredDuringSchedulingIgnoredDuringExecution:
         nodeSelectorTerms:
           - matchExpressions:
-              - key: CHANGE_ME
+              - key: kubernetes.io/os
                 operator: In
                 values:
-                  - CHANGE_ME
+                  - linux

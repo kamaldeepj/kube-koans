@@ -14,10 +14,10 @@ spec:
         - name: APP_MODE
           valueFrom:
             configMapKeyRef:
-              name: CHANGE_ME
+              name: app-config
               key: APP_MODE
         - name: PASSWORD
           valueFrom:
             secretKeyRef:
-              name: CHANGE_ME
+              name: app-secret
               key: PASSWORD

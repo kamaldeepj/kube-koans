@@ -1,7 +1,7 @@
 apiVersion: v1
 kind: ConfigMap
 metadata:
-  name: CHANGE_ME
+  name: app-config
   namespace: cka-koans
 data:
-  APP_MODE: REPLACE_ME
+  APP_MODE: practice
